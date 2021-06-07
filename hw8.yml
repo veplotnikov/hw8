@@ -23,7 +23,4 @@
     path: 
      src: builder/Dockerfile
      dst: /app/Dockerfile
-  - name: Ensure nginx.service  is present
-    shell:
-     name: postgresql
-     state: started
+  
