@@ -21,27 +21,36 @@
 - name: make bild
   hosts: bild
   become: yes
-
-  tasks:
-  - name: Creates directory
-    file:
-     path: /app/
-     state: directory
-
-  - name: Copy file to builder  
-    synchronize: 
-     src: maven
-     dest: /app/
-
-  - name: run docker-compose
-    shell:
-      cmd: docker-compose -f /app/maven/docker-compose.yml up -d
   
-  - name: Fetch .war
-    fetch:
-      src: /var/lib/docker/volumes/maven_data-vol/_data/hello-1.0.war
-      dest: '{{playbook_dir}}/'
-      flat: yes
+  tasks
+  - name: Build image and with build args
+    docker_image:
+     name: myimage
+     build:
+       path: '{{playbook_dir}}/maven/builder/'
+       source: build
+
+
+#  tasks:
+#  - name: Creates directory
+#    file:
+#     path: /app/
+#     state: directory
+#
+#  - name: Copy file to builder  
+#    synchronize: 
+#     src: maven
+#     dest: /app/
+#
+#  - name: run docker-compose
+#    shell:
+#      cmd: docker-compose -f /app/maven/docker-compose.yml up -d
+#  
+#  - name: Fetch .war
+#    fetch:
+#      src: /var/lib/docker/volumes/maven_data-vol/_data/hello-1.0.war
+#      dest: '{{playbook_dir}}/'
+#      flat: yes
 
 - name: make prod
   hosts: prod
