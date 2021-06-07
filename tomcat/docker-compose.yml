@@ -2,10 +2,10 @@ version: '3'
 volumes:
   data-vol:
 
-
-tomcat:
-  build: service
-  ports: 
-    - "8080:8080"
-  volumes:
-    - "data-vol:/opt/tomcat/webapps/"
+services:
+  tomcat:
+    build: service
+    ports: 
+      - "8080:8080"
+    volumes:
+      - "data-vol:/opt/tomcat/webapps/"
