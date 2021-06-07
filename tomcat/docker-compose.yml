@@ -3,9 +3,8 @@ volumes:
   data-vol:
 
 
-  tomcat:
-    build: service
-    
+tomcat:
+  build: service
     ports: 
       - "8080:8080"
     volumes:
