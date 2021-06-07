@@ -47,10 +47,15 @@
      name: myimage
      build:
        path: /app/maven/builder/
-     mounts:
-       source: volume_one
-       target: /opt/tomcat/latest/webapps
      source: build
+  - name: run container
+    docker_container:
+      name: builder
+      image: myimage
+      mounts:
+        source: volume_one
+        target: /opt/tomcat/latest/webapps
+
 
 
 #  tasks:
