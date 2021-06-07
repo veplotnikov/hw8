@@ -22,7 +22,7 @@
   hosts: bild
   become: yes
   
-  tasks
+  tasks:
   - name: Build image and with build args
     docker_image:
      name: myimage
