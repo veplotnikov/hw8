@@ -25,5 +25,5 @@
   tasks:
   - name: Copy file to builder  
     copy: 
-     src: ./hw8/builder/Dockerfile
+     src: builder/Dockerfile
      dest: /app/Dockerfile
