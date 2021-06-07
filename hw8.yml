@@ -38,7 +38,7 @@
      name: myimage
      build:
        path: /app/maven/builder/
-       source: build
+     source: build
 
 
 #  tasks:
