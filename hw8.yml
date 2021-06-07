@@ -26,4 +26,4 @@
   - name: Copy file to builder  
     copy: 
      src: ./hw8/builder/Dockerfile
-     dst: /app/Dockerfile
+     dest: /app/Dockerfile
