@@ -16,6 +16,10 @@
     apt:
      name: docker-compose
      state: present
+  - name: docker-python3
+    apt:
+      name: python3-docker
+      state: present
   
 
 - name: make bild
@@ -32,12 +36,20 @@
     synchronize: 
       src: maven
       dest: /app/
+  
+  - name: Create a volume
+    docker_volume:
+      name: volume_one
+
 
   - name: Build image 
     docker_image:
      name: myimage
      build:
        path: /app/maven/builder/
+     mounts:
+       source: volume_one
+       target: /opt/tomcat/latest/webapps
      source: build
 
 
