@@ -5,7 +5,7 @@ volumes:
 
 tomcat:
   build: service
-    ports: 
-      - "8080:8080"
-    volumes:
-       - "data-vol:/opt/tomcat/webapps/"
+  ports: 
+    - "8080:8080"
+  volumes:
+    - "data-vol:/opt/tomcat/webapps/"
