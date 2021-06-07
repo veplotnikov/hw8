@@ -1,9 +1,0 @@
-version: '3'
-volumes:
-  data-vol:
-
-services:
-  builder:
-    build: builder
-    volumes:
-      - "data-vol:/opt/tomcat/latest/webapps"
