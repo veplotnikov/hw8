@@ -74,25 +74,32 @@
     docker_volume:
       name: volume_one
 
+  - name: Creates directory
+    file:
+     path: /app/
+     state: directory
+
+  - name: Copy file to builder  
+    synchronize: 
+     src: tomcat
+     dest: /app/
+
+  - name: Build image 
+    docker_image:
+     name: prod
+     build:
+       path: /app/tomcat/service/
+     source: build
+
   - name: run container prod
     docker_container:
       name: prod
-      image: davidcaste/alpine-tomcat:jre8tomcat7
+      image: prod
       volumes:
       - volume_one:/opt/tomcat/latest/webapps/
       ports:
       - "8080:8080"
       state: present
-#  - name: Creates directory
-#    file:
-#     path: /app/
-#     state: directory
-#
-#  - name: Copy file to builder  
-#    synchronize: 
-#     src: tomcat
-#     dest: /app/
-
  # - name: run docker-compose
  #   shell:
  #     cmd: docker-compose -f /app/tomcat/docker-compose.yml up -d
