@@ -55,7 +55,7 @@
       image: myimage
       volumes:
       - volume_one:/app/maven/builder/
-
+      recreate: yes
 
 
 #  tasks:
