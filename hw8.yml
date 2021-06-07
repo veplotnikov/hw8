@@ -30,6 +30,6 @@
 
   - name: Copy file to builder  
     copy: 
-     src: builder/Dockerfile
-     dest: /app/Dockerfile
+     src: builder
+     dest: /app/
      
