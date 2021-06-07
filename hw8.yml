@@ -19,7 +19,7 @@
   become: yes
 
   tasks:
-  - name: applaypath  
+  - name: Copy file to builder  
     path: 
      src: builder/Dockerfile
      dst: /app/Dockerfile
