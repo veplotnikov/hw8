@@ -100,10 +100,7 @@
       ports:
       - "8080:8080"
       state: started
- # - name: run docker-compose
- #   shell:
- #     cmd: docker-compose -f /app/tomcat/docker-compose.yml up -d
-  
+   
   - name: Copy .war
     copy:
       src: '{{playbook_dir}}/hello-1.0.war'
