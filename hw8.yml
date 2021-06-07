@@ -27,7 +27,7 @@
     file:
      path: /app/
      state: directory
-     
+
   - name: Copy file to builder
     synchronize: 
       src: maven
@@ -36,8 +36,8 @@
   - name: Build image 
     docker_image:
      name: myimage
-     build:
-       path: '/app/maven/builder/'
+    build:
+       path: /app/maven/builder/
        source: build
 
 
