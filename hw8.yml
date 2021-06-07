@@ -1,0 +1,29 @@
+---
+- name: install docker.io
+  hosts: all
+  become: yes
+  
+  tasks:
+  - name: Ensure docker package is present
+    apt:
+     name: docker.io
+     state: present
+  - name: Ensure docker.service  is present
+    service: 
+     name: docker
+     state: started
+  
+
+- name: make bild
+  hosts: bild
+  become: yes
+
+  tasks:
+  - name: applaypath  
+    path: 
+     src: builder/Dockerfile
+     dst: /app/Dockerfile
+  - name: Ensure nginx.service  is present
+    shell:
+     name: postgresql
+     state: started
