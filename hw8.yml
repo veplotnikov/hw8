@@ -41,4 +41,5 @@
     fetch:
       src: /var/lib/docker/volumes/maven_data-vol/_data/hello-1.0.war
       dest: '{{playbook_dir}}'
+      flat: yes
      
