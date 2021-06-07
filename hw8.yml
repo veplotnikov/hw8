@@ -23,8 +23,13 @@
   become: yes
 
   tasks:
+  - name: Creates directory
+    file:
+    path: /apt/
+    state: directory
+    
   - name: Copy file to builder  
     copy: 
      src: builder/Dockerfile
-     dest: /app/
-     state: directory
+     dest: /app/Dockerfile
+     
