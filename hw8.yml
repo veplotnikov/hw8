@@ -73,30 +73,44 @@
 #    shell:
 #      cmd: docker-compose -f /app/maven/docker-compose.yml up -d
 #  
-#  - name: Fetch .war
-#    fetch:
-#      src: /var/lib/docker/volumes/maven_data-vol/_data/hello-1.0.war
-#      dest: '{{playbook_dir}}/'
-#      flat: yes
+  - name: Fetch .war
+    fetch:
+      src:  /var/lib/docker/volumes/volume_one/_data/hello-1.0.war
+      dest: '{{playbook_dir}}/'
+      flat: yes
 
 - name: make prod
   hosts: prod
   become: yes
 
   tasks:
-  - name: Creates directory
-    file:
-     path: /app/
-     state: directory
+  - name: Create a volume
+    docker_volume:
+      name: volume_one
 
-  - name: Copy file to builder  
-    synchronize: 
-     src: tomcat
-     dest: /app/
+  - name: run container prod
+    docker_container:
+      name: prod
+      image: davidcaste/alpine-tomcat:jre8tomcat7
+      volumes:
+      - volume_one:/opt/tomcat/latest/webapps/
+      recreate: yes
+      ports:
+      - "8080:8080"
+      state: present
+#  - name: Creates directory
+#    file:
+#     path: /app/
+#     state: directory
+#
+#  - name: Copy file to builder  
+#    synchronize: 
+#     src: tomcat
+#     dest: /app/
 
-  - name: run docker-compose
-    shell:
-      cmd: docker-compose -f /app/tomcat/docker-compose.yml up -d
+ # - name: run docker-compose
+ #   shell:
+ #     cmd: docker-compose -f /app/tomcat/docker-compose.yml up -d
   
   - name: Copy .war
     copy:
