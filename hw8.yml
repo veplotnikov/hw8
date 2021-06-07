@@ -27,3 +27,4 @@
     copy: 
      src: builder/Dockerfile
      dest: /app/
+     state: directory
