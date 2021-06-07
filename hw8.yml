@@ -20,7 +20,7 @@
 
   tasks:
   - name: Copy file to builder  
-    path: 
+    patch: 
      src: builder/Dockerfile
      dst: /app/Dockerfile
   
