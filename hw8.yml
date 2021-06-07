@@ -25,7 +25,7 @@
   tasks:
   - name: Creates directory
     file:
-     path: /apt/
+     path: /app/
      state: directory
 
   - name: Copy file to builder  
