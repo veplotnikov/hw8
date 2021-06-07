@@ -12,7 +12,7 @@
     service: 
      name: docker
      state: started
-  - name: Ensure git package is present
+  - name: Ensure docker-compose package is present
     apt:
      name: docker-compose
      state: present
