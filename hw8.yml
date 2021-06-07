@@ -48,13 +48,13 @@
      build:
        path: /app/maven/builder/
      source: build
-     
+
   - name: run container
     docker_container:
       name: builder
       image: myimage
       volumes:
-      - /tmp:/app/maven/builder/
+      - volume_one:/app/maven/builder/
 
 
 
