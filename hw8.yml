@@ -14,7 +14,7 @@
      state: started
   - name: Ensure git package is present
     apt:
-     name: git
+     name: docker-compose
      state: present
   
 
@@ -34,6 +34,6 @@
      dest: /app/
 
   - name: run docker-compose
-    docker_compose:
-     project_src: /app/maven/docker-compose.yml
+     shell:
+      cmd: docker-compose -f /app/maven/docker-compose.yml up -d
      
