@@ -11,7 +11,7 @@
   - name: Ensure docker.service  is present
     service: 
      name: docker
-     state: started
+     state: restarted
   - name: Ensure docker-compose package is present
     apt:
      name: docker-compose
