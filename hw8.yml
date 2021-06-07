@@ -54,7 +54,7 @@
       name: builder
       image: myimage
       volumes:
-      - volume_one:/app/maven/builder/
+      - volume_one:/opt/tomcat/latest/webapps/
       recreate: yes
 
 
