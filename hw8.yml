@@ -23,11 +23,21 @@
   become: yes
   
   tasks:
-  - name: Build image and with build args
+  - name: Creates directory
+    file:
+     path: /app/
+     state: directory
+     
+  - name: Copy file to builder
+    synchronize: 
+      src: maven
+      dest: /app/
+
+  - name: Build image 
     docker_image:
      name: myimage
      build:
-       path: '{{playbook_dir}}/maven/builder/'
+       path: '/app/maven/builder/'
        source: build
 
 
