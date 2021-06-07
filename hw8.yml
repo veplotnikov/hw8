@@ -58,21 +58,7 @@
       recreate: yes
 
 
-#  tasks:
-#  - name: Creates directory
-#    file:
-#     path: /app/
-#     state: directory
-#
-#  - name: Copy file to builder  
-#    synchronize: 
-#     src: maven
-#     dest: /app/
-#
-#  - name: run docker-compose
-#    shell:
-#      cmd: docker-compose -f /app/maven/docker-compose.yml up -d
-#  
+  
   - name: Fetch .war
     fetch:
       src:  /var/lib/docker/volumes/volume_one/_data/hello-1.0.war
