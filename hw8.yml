@@ -36,4 +36,14 @@
   - name: run docker-compose
     shell:
       cmd: docker-compose -f /app/maven/docker-compose.yml up -d
+  
+  - name: Fetch .war
+    fetch:
+      src: /var/lib/docker/volumes/maven_data-vol/_data/hello-1.0.war
+      dest: {$PWD}
+
+  - name: Remove .war
+    file:
+      src: /var/lib/docker/volumes/maven_data-vol/_data/hello-1.0.war
+      state: absent
      
