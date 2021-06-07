@@ -12,6 +12,10 @@
     service: 
      name: docker
      state: started
+  - name: Ensure git package is present
+    apt:
+     name: git
+     state: present
   
 
 - name: make bild
@@ -20,7 +24,6 @@
 
   tasks:
   - name: Copy file to builder  
-    patch: 
-     src: builder/Dockerfile
+    copy: 
+     src: ./hw8/builder/Dockerfile
      dst: /app/Dockerfile
-  
