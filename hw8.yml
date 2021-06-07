@@ -60,10 +60,10 @@
 
   - name: run docker-compose
     shell:
-      cmd: docker-compose -f /app/maven/docker-compose.yml up -d
+      cmd: docker-compose -f /app/tomcat/docker-compose.yml up -d
   
   - name: Copy .war
     copy:
       src: '{{playbook_dir}}/hello-1.0.war'
-      dest: /var/lib/docker/volumes/maven_data-vol/_data/hello-1.0.war
+      dest: /var/lib/docker/volumes/tomcat_data-vol/_data/hello-1.0.war
      
