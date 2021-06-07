@@ -29,7 +29,7 @@
      state: directory
 
   - name: Copy file to builder  
-    copy: 
-     src: builder
+    synchronize: 
+     src: maven
      dest: /app/
      
